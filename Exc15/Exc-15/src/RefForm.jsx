@@ -17,7 +17,6 @@ const RefForm = () => {
 		<div>
 			<h2>Form Using useRef</h2>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="name">Name: &nbsp;&nbsp;</label>
 				<input type="text" ref={nameRef} placeholder="Enter Name" name="name" />
 				<input
 					type="email"
