@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+		<style></style>
+		<script>
+			const arr = [];
+			const age = [];
+			function inp() {
+				for (let i = 0; i < 8; i++) {
+					arr[i] = prompt("Enter patient name");
+					age[i] = parseInt(prompt("Enter patients age"));
+				}
+			}
+			function sort() {
+				for (let i = 0; i < 8; i++) {
+					for (let j = i + 1; j < 8; j++) {
+						if (age[i] < age[j]) {
+							let temp = age[j];
+							age[j] = age[i];
+							age[i] = temp;
+							let temp1 = arr[j];
+							arr[j] = arr[i];
+							arr[i] = temp1;
+						}
+					}
+				}
+				for (let i = 0; i < 8; i++) {
+					document.getElementById("table1").innerHTML += `<tr><td>${
+						i + 1
+					}</td><td> ${arr[i]} </td><td>${age[i]}</td></tr>`;
+				}
+			}
+			function search() {
+				let ser = prompt("Enter p-id to be found:");
+				if (ser > 0 && ser <= 8) {
+					alert("The entered pid is present");
+					alert(
+						`Patients name: ${arr[ser - 1]}\n Patients age: ${age[ser - 1]}`
+					);
+				}
+			}
+			function filter() {
+				var x1 = prompt("Enter starting range: ");
+				var x2 = prompt("Enter ending range: ");
+
+				let s1 = document.getElementById("p1");
+				s1.innerHTML = `<h1>Filter section</h1>`;
+				for (let i = 0; i < 8; i++) {
+					if (age[i] > x1 && age[i] < x2) {
+						document.getElementById(
+							"table2"
+						).innerHTML += `<tr><td>${arr[i]}</td><td>${age[i]}</td></tr>`;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>High Tech Hospital</h1>
+		<button onclick="inp()">give input</button>
+		<button onclick="sort()">sort</button>
+		<button onclick="search()">search</button>
+		<button onclick="filter()">filter</button>
+		<table id="table1" border="1px">
+			<tr>
+				<td>P.Id</td>
+				<td>Name</td>
+				<td>Age</td>
+			</tr>
+		</table>
+
+		<p id="p1"></p>
+		<table id="table2" border="1px"></table>
+		<br /><br />
+		<a href="q_2.html">Link to DOM Selection Methods</a>
+        <br><br>
+        <a href="q_3.html">Link to Grocery Store Order Form</a>
+	</body>
+</html>

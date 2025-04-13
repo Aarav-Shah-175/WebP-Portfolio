@@ -1,0 +1,55 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background: url("background.jpeg") no-repeat center center;
+	background-size: cover;
+}
+
+.container {
+	text-align: center;
+	padding: 20px;
+}
+
+.rainbow {
+	font-size: 3rem;
+	font-weight: bold;
+	background: linear-gradient(
+		to right,
+		red,
+		orange,
+		yellow,
+		green,
+		blue,
+		indigo,
+		violet
+	);
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.description {
+	column-count: 3;
+	column-gap: 20px;
+	line-height: 30pt;
+	margin: 20px;
+}
+
+.play-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+	position: relative;
+}
+
+#ball {
+	width: 100px;
+	height: 100px;
+	transform-origin: center;
+}
+
+.dog {
+	font-size: 5rem;
+	margin-left: 20px;
+}

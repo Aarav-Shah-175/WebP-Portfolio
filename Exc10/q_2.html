@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+	</head>
+	<body>
+		<h1 id="title">Original Title</h1>
+
+		<input
+			type="text"
+			name="username"
+			placeholder="Enter username"
+		/><br /><br />
+
+		<label
+			><input
+				type="radio"
+				name="gender"
+				value="male"
+				onclick="fun1()"
+			/>Male</label
+		>
+		<label
+			><input
+				type="radio"
+				name="gender"
+				value="female"
+				onclick="fun1()"
+			/>Female</label
+		>
+		<label
+			><input
+				type="radio"
+				name="gender"
+				value="others"
+				onclick="fun1()"
+			/>Others</label
+		><br /><br />
+
+		<p class="para1">Paragraph 1</p>
+		<p class="para1">Paragraph 2</p>
+		<p>Another Paragraph</p>
+
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+		</ul>
+
+		<input type="checkbox" class="hobby" value="reading" />Reading
+		<input type="checkbox" class="hobby" value="gaming" />gaming
+		<input type="checkbox" class="hobby" value="traveling" />Traveling
+		<br /><br />
+
+		<input type="text" class="inputfield" placeholder="Input 1" />
+		<input type="text" class="inputfield" placeholder="Input 2" />
+
+		<script>
+			document.getElementById("title").textContent = "Updated Title";
+			document.getElementsByName("username")[0].value = "John Doe";
+			function fun1() {
+				let rad = document.getElementsByName("gender");
+				for (let r of rad) {
+					if (r.checked) {
+						console.log("Selected gender: " + r.value);
+						break;
+					}
+				}
+			}
+			let para = document.getElementsByTagName("p");
+			console.log("Total <p> tags : " + para.length);
+
+			let list = document.getElementsByTagName("li");
+			for (let l of list) {
+				console.log("List item: " + l.textContent);
+			}
+
+			let cn = document.getElementsByClassName("inputfield");
+			for (let c of cn) {
+				c.style.backgroundColor = "lightblue";
+			}
+
+			let paraq = document.querySelector("p.para1");
+			if (paraq) {
+				paraq.textContent = "This is 1st paragraph";
+			}
+
+			let radq = document.querySelector("input[name='gender']");
+			if (radq) {
+				radq.checked = true;
+				console.log("First radio checked : " + radq.value);
+			}
+
+			let paraq2 = document.querySelectorAll("p.para1");
+			for (p2 of paraq2) {
+				console.log("Paragraph Info: " + p2.textContent);
+			}
+
+			let hobby = document.querySelectorAll("input[class='hobby']");
+			for (h of hobby) {
+				h.checked = true;
+				console.log("Checked hobby: " + h.value);
+			}
+		</script>
+	</body>
+</html>

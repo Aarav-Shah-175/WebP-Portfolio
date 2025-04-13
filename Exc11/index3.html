@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test JavaScript Form Validation 23BCE1166</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        #time {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            document.getElementById("time").innerText = "Time: " + new Date().toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+
+        function validateForm(event) {
+            event.preventDefault(); 
+            
+            let name = document.getElementById("name");
+            let address = document.getElementById("address");
+            let zip = document.getElementById("zip");
+            let phone = document.getElementById("phone");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let pan = document.getElementById("pan");
+            let isValid = true;
+            
+            if (name.value.trim().length > 15) {
+                alert("Name cannot exceed 15 characters.");
+                name.focus();
+                isValid = false;
+            }
+            
+            if (address.value.trim() === "") {
+                alert("Address cannot be empty.");
+                address.focus();
+                isValid = false;
+            }
+
+            if (!/^\d{5,6}$/.test(zip.value)) {
+                alert("Enter a valid Zip Code (5-6 digits).");
+                zip.focus();
+                isValid = false;
+            }
+
+            if (!/^\d{10}$/.test(phone.value)) {
+                alert("Enter a valid 10-digit phone number.");
+                phone.focus();
+                isValid = false;
+            }
+
+            let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email.value)) {
+                alert("Enter a valid email address.");
+                email.focus();
+                isValid = false;
+            }
+
+            let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+            if (!passwordRegex.test(password.value)) {
+                alert("Password must be 8-15 characters, include at least 1 letter, 1 number, and 1 special character.");
+                password.focus();
+                isValid = false;
+            }
+
+            let panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (!panRegex.test(pan.value)) {
+                alert("Enter a valid PAN Number (Format: AAAAA1234A).");
+                pan.focus();
+                isValid = false;
+            }
+
+            if (isValid) {
+                printFormData();
+            }
+        }
+
+        function printFormData() {
+            let gender = document.getElementsByName("gender");
+            let selectedGender = [...gender].find(radio => radio.checked)?.value || "Not selected";
+
+            let country = document.getElementById("country").value;
+            
+            let preferences = document.getElementsByName("preference");
+            let selectedPreferences = [...preferences].filter(checkbox => checkbox.checked).map(cb => cb.value).join(", ") || "None";
+
+            alert(`
+                Name: ${document.getElementById("name").value}
+                Address: ${document.getElementById("address").value}
+                Zip Code: ${document.getElementById("zip").value}
+                Country: ${country}
+                Gender: ${selectedGender}
+                Preferences: ${selectedPreferences}
+                Phone: ${document.getElementById("phone").value}
+                Email: ${document.getElementById("email").value}
+                PAN No: ${document.getElementById("pan").value}
+            `);
+        }
+    </script>
+</head>
+<body onload="updateTime()">
+    <div id="time"></div>
+    <h2>Test JavaScript Form Validation</h2>
+    <form onsubmit="validateForm(event)">
+        <table>
+            <tr>
+                <td>Name*</td>
+                <td><input type="text" id="name" required></td>
+            </tr>
+            <tr>
+                <td>Address*</td>
+                <td><textarea id="address" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Zip Code*</td>
+                <td><input type="text" id="zip" required></td>
+            </tr>
+            <tr>
+                <td>Country*</td>
+                <td>
+                    <select id="country" required>
+                        <option value="">Please select...</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender*</td>
+                <td>
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+                <td>Pan No: <input type="text" id="pan" required></td>
+            </tr>
+            <tr>
+                <td>Preferences*</td>
+                <td>
+                    <input type="checkbox" name="preference" value="Red"> Red
+                    <input type="checkbox" name="preference" value="Green"> Green
+                    <input type="checkbox" name="preference" value="Blue"> Blue
+                </td>
+            </tr>
+            <tr>
+                <td>Phone*</td>
+                <td><input type="text" id="phone" required></td>
+            </tr>
+            <tr>
+                <td>Email*</td>
+                <td><input type="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td>Password (8-15 characters)*</td>
+                <td><input type="password" id="password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">SEND</button>
+                    <button type="reset">CLEAR</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

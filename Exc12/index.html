@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1166</title>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+
+        function drawHouse() {
+            ctx.fillStyle = "orange";
+            ctx.fillRect(50, 200, 80, 80);
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo(50, 200);
+            ctx.lineTo(90, 150);
+            ctx.lineTo(130, 200);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "blue";
+            ctx.fillRect(65, 220, 15, 15);
+            ctx.fillStyle = "brown";
+            ctx.fillRect(95, 240, 20, 40);
+        }
+
+        function drawSun() {
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(500, 50, 30, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function drawPond() {
+            ctx.fillStyle = "lightblue";
+            ctx.beginPath();
+            ctx.ellipse(300, 280, 100, 50, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        let boatX = 270;
+        function drawBoat() {
+            ctx.fillStyle = "brown";
+            ctx.beginPath();
+            ctx.moveTo(boatX, 275);
+            ctx.lineTo(boatX + 50, 275);
+            ctx.lineTo(boatX + 40, 285);
+            ctx.lineTo(boatX + 10, 285);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "darkred";
+        }
+
+        function drawDuck() {
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(420, 310, 20, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(450, 295, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(457, 290, 3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "orange";
+            ctx.beginPath();
+            ctx.moveTo(465, 295);
+            ctx.lineTo(475, 300);
+            ctx.lineTo(465, 305);
+            ctx.fill();
+        }
+
+        function drawFlower() {
+            let flowerX = 530;
+            let flowerY = 300;
+            ctx.fillStyle = "green";
+            ctx.fillRect(flowerX - 5, flowerY + 10, 10, 40);
+            ctx.beginPath();
+            ctx.moveTo(flowerX - 5, flowerY + 40);
+            ctx.lineTo(flowerX - 20, flowerY + 60);
+            ctx.lineTo(flowerX - 5, flowerY + 50);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(flowerX + 5, flowerY + 40);
+            ctx.lineTo(flowerX + 20, flowerY + 60);
+            ctx.lineTo(flowerX + 5, flowerY + 50);
+            ctx.fill();
+            ctx.fillStyle = "pink";
+            for (let i = 0; i < 6; i++) {
+                let angle = (i * Math.PI * 2) / 6;
+                ctx.beginPath();
+                ctx.ellipse(flowerX + Math.cos(angle) * 15, flowerY + Math.sin(angle) * 15, 15, 10, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+            }
+            ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.arc(flowerX, flowerY, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        function drawStones() {
+            let positions = [[100, 320], [110, 325], [120, 320], [420, 350], [430, 355]];
+            positions.forEach(pos => {
+                ctx.fillStyle = "gray";
+                ctx.beginPath();
+                ctx.arc(pos[0], pos[1], 10, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+            });
+        }
+
+        function animateBoat() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawHouse();
+            drawSun();
+            drawPond();
+            drawBoat();
+            drawDuck();
+            drawFlower();
+            drawStones();
+            boatX += 1;
+            if (boatX > 330) {
+                boatX = 270;
+            }
+            requestAnimationFrame(animateBoat);
+        }
+
+        animateBoat();
+    </script>
+    <br><br>
+    <a href="clock.html">Link to Analog Clock</a>
+    <br><br>
+    <a href="charts.html">Link to Charts</a>
+    <br><br>
+    <a href="zindex.html">Link to Z-Index</a>
+</body>
+</html>

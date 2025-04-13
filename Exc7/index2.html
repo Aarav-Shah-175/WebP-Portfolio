@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="rainbow">Welcome to the Pet World</h1>
+
+			<div class="description">
+				<p>Dogs are loyal companions and excellent protectors.</p>
+				<p>Cats are independent yet affectionate pets.</p>
+				<p>Birds bring a touch of melody and vibrance to your home.</p>
+				<p>Fish are mesmerizing and create a calming atmosphere.</p>
+			</div>
+
+			<div class="play-area">
+				<svg
+					id="ball"
+					xmlns="http://www.w3.org/2000/svg"
+					width="100"
+					height="100"
+					viewBox="0 0 100 100"
+				>
+					<circle cx="50" cy="50" r="40" fill="red" />
+				</svg>
+				<div class="dog"></div>
+			</div>
+		</div>
+
+		<script>
+			const ball = document.getElementById("ball");
+			ball.animate(
+				[
+					{ transform: "translate(0, 0) rotate(0deg)" },
+					{ transform: "translate(50px, 50px) rotate(45deg)" },
+					{ transform: "translate(0, 100px) rotate(90deg)" },
+					{ transform: "translate(-50px, 50px) rotate(135deg)" },
+					{ transform: "translate(0, 0) rotate(180deg)" },
+				],
+				{
+					duration: 3000,
+					iterations: Infinity,
+				}
+			);
+		</script>
+	</body>
+</html>

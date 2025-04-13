@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+	</head>
+	<body>
+		<form>
+			<div style="border: 2px solid black; width: 220px; padding: 3%">
+				<h2>Login</h2>
+				<div>
+					<label
+						>Username*
+						<input type="text" required />
+					</label>
+				</div>
+				<br />
+
+				<div>
+					<label for="pass">Password*</label>
+				</div>
+				<input type="password" name="pass" id="pass" required />
+			</div>
+			<div style="border: 2px solid black; width: 220px; padding: 3%">
+				<h2>Gender*</h2>
+				<div>
+					<label
+						>Male
+						<input type="radio" name="gender" id="male" />
+						Female
+						<input type="radio" name="gender" id="female" />
+					</label>
+				</div>
+			</div>
+			<div style="border: 2px solid black; width: 220px; padding: 3%">
+				<h2>Programming Skill</h2>
+				<div>
+					<label for="j">Java</label>
+					<input type="checkbox" name="j" id="j" />
+					<label for="c+">C++</label>
+					<input type="checkbox" name="c+" id="c+" />
+					<label for="c">C</label>
+					<input type="checkbox" name="c" id="c" />
+				</div>
+			</div>
+			<div style="border: 2px solid black; width: 220px">
+				<h2>Fruit</h2>
+				<label for="fruits">Choose a fruit:</label>
+				<select id="fruits" name="fruits">
+					<optgroup label="Pome">
+						<option value="apple">Apple</option>
+						<option value="pear">Pear</option>
+					</optgroup>
+
+					<optgroup label="Citrus">
+						<option value="orange">Orange</option>
+						<option value="grapefruit">Grapefruit</option>
+						<option value="mandarin">Mandarin</option>
+						<option value="lime">Lime</option>
+					</optgroup>
+
+					<optgroup label="Stone">
+						<option value="nectarine">Nectarine</option>
+						<option value="apricot">Apricot</option>
+						<option value="peach">Peach</option>
+						<option value="plum">Plum</option>
+					</optgroup>
+
+					<optgroup label="Exotic">
+						<option value="banana">Banana</option>
+						<option value="mango">Mango</option>
+					</optgroup>
+
+					<optgroup label="Berries">
+						<option value="strawberry">Strawberry</option>
+						<option value="raspberry">Raspberry</option>
+						<option value="blueberry">Blueberry</option>
+						<option value="kiwifruit">Kiwifruit</option>
+						<option value="passionfruit">Passionfruit</option>
+					</optgroup>
+
+					<optgroup label="Melons">
+						<option value="watermelon">Watermelon</option>
+						<option value="rockmelon">Rockmelon</option>
+						<option value="honeydew">Honeydew Melon</option>
+					</optgroup>
+				</select>
+			</div>
+			<div style="border: 2px solid black; width: 220px">
+				<label for="comment"></label>
+				<textarea name="comment" id="comment" maxlength="100">
+Enter your comments here</textarea
+				>
+			</div>
+			<div
+				style="
+					border: 2px solid black;
+					width: 220px;
+					display: flex;
+					justify-content: center;
+				"
+			>
+				<button>SEND</button>
+				<button>RESET</button>
+			</div>
+		</form>
+		<br /><br />
+		<form>
+			<div style="border: 2px solid black; width: 600px">
+				<p style="color: red">Personal Details</p>
+				<div>
+					<label for="name">Name :</label>
+					<input style="margin-left: 50px" type="text" name="name" id="name" />
+				</div>
+				<br />
+				<div>
+					<label for="pass">Password :</label>
+					<input style="margin-left: 27px" type="text" name="pass" id="pass" />
+				</div>
+				<br />
+				<div>
+					<label for="mail">Email id :</label>
+					<input style="margin-left: 30px" type="email" name="mail" id="mail" />
+				</div>
+				<br />
+				<div>
+					Gender :
+					<input
+						style="margin-left: 45px"
+						type="radio"
+						name="gender"
+						id="male"
+					/>
+					<label for="male">Male</label>
+					<input
+						style="margin-left: 45px"
+						type="radio"
+						name="gender"
+						id="female"
+					/>
+					<label for="female">Female</label>
+				</div>
+				<br />
+				<div>
+					<label for="birth">DOB :</label>
+					<input
+						style="margin-left: 54px"
+						type="date"
+						name="birth"
+						id="birth"
+						min="10-25-1900"
+					/>
+				</div>
+				<br />
+				<div>
+					<label for="mobile">Mobile# :</label>
+					<input
+						style="margin-left: 33px"
+						type="number"
+						name="mobile"
+						id="mobile"
+					/>
+				</div>
+			</div>
+			<br />
+			<div style="border: 2px solid black; width: 600px">
+				<p style="color: red">Educational Qualification</p>
+				<div>
+					<label for="degree">Degree :</label>
+					<select style="margin-left: 41px" name="degree" id="degree">
+						<option value="" selected enabled>--Select Group--</option>
+						<optgroup label="UG">
+							<option value="BE">BE</option>
+							<option value="BTech">BTech</option>
+							<option value="BSc">BSc</option>
+							<option value="BA">BA</option>
+							<option value="BCA">BCA</option>
+							<option value="BBA">BBA</option>
+							<option value="Others">Others</option>
+						</optgroup>
+						<optgroup label="PG">
+							<option value="ME">ME</option>
+							<option value="MTech">MTech</option>
+							<option value="MSc">MSc</option>
+							<option value="MA">MA</option>
+							<option value="MCA">MCA</option>
+							<option value="MBA">MBA</option>
+							<option value="Others">Others</option>
+						</optgroup>
+						<optgroup label="PhD">
+							<option value="eng">Engineering</option>
+							<option value="Sci">Science</option>
+							<option value="Man">Management</option>
+							<option value="others">Others</option>
+						</optgroup>
+					</select>
+					<label style="margin-left: 10px" for="eng">Engineering : </label>
+					<select style="margin-left: 41px" name="eng" id="eng">
+						<option value="" selected disabled>--Select Group--</option>
+						<option value="CSE">CSE</option>
+						<option value="CSE">ECE</option>
+						<option value="CSE">EEE</option>
+						<option value="CSE">MECH</option>
+						<option value="CSE">CIVIL</option>
+					</select>
+				</div>
+			</div>
+			<br />
+			Hobbies :
+			<input
+				style="margin-left: 35px"
+				type="checkbox"
+				name="hobby"
+				id="hobby"
+			/>
+			<label for="hobby">Playing Chess</label>
+			<input type="checkbox" name="book" id="book" />
+			<label for="book">Reading Books</label>
+			<br />
+			Favourite Colour :
+			<input type="color" />
+			<br />
+			<p style="color: red">Address</p>
+			<textarea style="width: 600px"></textarea>
+			<br />
+			<br />
+			<label for="file">Attach Resume : </label>
+			<input type="file" id="file" name="file" />
+			<input type="submit" value="Submit" />
+		</form>
+		<br /><br />
+		<h2>Product Feedback</h2>
+		<form>
+			<label for="slider1">Quality (1-10):</label>
+			<input
+				type="range"
+				id="slider1"
+				name="quality"
+				min="1"
+				max="10"
+				value="5"
+				oninput="updateTotal()"
+			/>
+			<output for="slider1" id="qualityValue">5</output>
+			<br /><br />
+
+			<label for="slider2">Price (1-10):</label>
+			<input
+				type="range"
+				id="slider2"
+				name="price"
+				min="1"
+				max="10"
+				value="5"
+				oninput="updateTotal()"
+			/>
+			<output for="slider2" id="priceValue">5</output>
+			<br /><br />
+
+			<label for="slider3">Satisfaction (1-10):</label>
+			<input
+				type="range"
+				id="slider3"
+				name="satisfaction"
+				min="1"
+				max="10"
+				value="5"
+				oninput="updateTotal()"
+			/>
+			<output for="slider3" id="satisfactionValue">5</output>
+			<br /><br />
+
+			<h3>Total Feedback Value:</h3>
+			<output id="totalValue">15</output>
+		</form>
+
+		<input type="range" />
+	</body>
+	<script>
+		function updateTotal() {
+			const quality = document.getElementById("slider1").value;
+			const price = document.getElementById("slider2").value;
+			const satisfaction = document.getElementById("slider3").value;
+
+			document.getElementById("qualityValue").textContent = quality;
+			document.getElementById("priceValue").textContent = price;
+			document.getElementById("satisfactionValue").textContent = satisfaction;
+
+			const total =
+				parseInt(quality) + parseInt(price) + parseInt(satisfaction);
+			document.getElementById("totalValue").textContent = total;
+		}
+	</script>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+		<style>
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				padding: 10px;
+				text-align: center;
+			}
+			.bmi-container {
+				border: 2px solid black;
+				padding: 15px;
+				width: 250px;
+				margin: auto;
+				text-align: center;
+			}
+			.bmi-container input {
+				width: 80%;
+				margin: 5px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Daily Temperature Analysis</h2>
+		<button onclick="analyzeTemperatures()">Analyze Temperatures</button>
+		<table>
+			<tr>
+				<th>Temperature (°F)</th>
+				<th>Category</th>
+			</tr>
+			<tbody id="temperatureTable"></tbody>
+		</table>
+		<p id="summary"></p>
+
+		<br /><br />
+		<h2>Airline Seat Reservation</h2>
+		<button onclick="reserveSeat()">Reserve a Seat</button>
+		<p id="boardingPass"></p>
+
+		<br /><br />
+		<h2>BMI Calculator</h2>
+		<div class="bmi-container">
+			<label
+				>BMI Calculator:
+				<select id="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</label>
+			<br />
+			<label>Enter Your Weight (Kg): <input type="number" id="weight" /></label
+			><br />
+			<label>Enter Your Height: </label>
+			<label>Feet: <input type="number" id="heightFeet" /></label>
+			<label>Inches: <input type="number" id="heightInches" /></label>
+			<br />
+			<button onclick="calculateBMI()">Calculate</button>
+			<p id="bmiResult"></p>
+		</div>
+
+		<script>
+			// Temperature Analysis
+			function analyzeTemperatures() {
+				let temperatures = [
+					55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91, 92, 90,
+					93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65,
+				];
+				let hot = 0,
+					pleasant = 0,
+					cold = 0;
+				let tableContent = "";
+
+				temperatures.forEach((temp) => {
+					let category = temp >= 85 ? "HOT" : temp >= 60 ? "PLEASANT" : "COLD";
+					if (category === "HOT") hot++;
+					else if (category === "PLEASANT") pleasant++;
+					else cold++;
+
+					tableContent += `<tr><td>${temp}</td><td>${category}</td></tr>`;
+				});
+
+				document.getElementById("temperatureTable").innerHTML = tableContent;
+				document.getElementById(
+					"summary"
+				).innerText = `Hot Days: ${hot}, Pleasant Days: ${pleasant}, Cold Days: ${cold}`;
+			}
+
+			// Airline Seat Reservation
+			let seats = Array(10).fill(0);
+			function reserveSeat() {
+				let choice = parseInt(
+					prompt("Enter 1 for First Class or 2 for Economy:")
+				);
+				let numSeats = parseInt(prompt("How many seats do you need?"));
+				let assignedSeats = [];
+
+				for (let i = 0; i < numSeats; i++) {
+					let assignedSeat = -1;
+					if (choice === 1) {
+						assignedSeat = seats.indexOf(0);
+						if (assignedSeat >= 5) assignedSeat = -1;
+					} else if (choice === 2) {
+						assignedSeat = seats.slice(5).indexOf(0) + 5;
+						if (assignedSeat < 5) assignedSeat = -1;
+					}
+					if (assignedSeat === -1) {
+						alert("No available seats in your section.");
+						break;
+					}
+					seats[assignedSeat] = 1;
+					assignedSeats.push(assignedSeat + 1);
+				}
+				if (assignedSeats.length > 0) {
+					document.getElementById(
+						"boardingPass"
+					).innerText = `Seats booked: ${assignedSeats.join(", ")} in ${
+						choice === 1 ? "First Class" : "Economy"
+					}.`;
+				}
+			}
+
+			// BMI Calculator
+			function calculateBMI() {
+				let weight = parseFloat(document.getElementById("weight").value);
+				let heightFeet = parseFloat(
+					document.getElementById("heightFeet").value
+				);
+				let heightInches = parseFloat(
+					document.getElementById("heightInches").value
+				);
+				let heightTotal = (heightFeet * 12 + heightInches) * 0.0254;
+				let bmi = weight / heightTotal ** 2;
+				let gender = document.getElementById("gender").value;
+
+				let category;
+				if (bmi < 17.5) category = "Anorexia";
+				else if (bmi < 19.1) category = "Underweight";
+				else if (bmi < 25.8) category = "Ideal range";
+				else if (bmi < 27.3) category = "Marginally overweight";
+				else if (bmi < 32.3) category = "Overweight";
+				else category = "Obese";
+
+				alert(`Your BMI is ${bmi.toFixed(2)} (${category})`);
+				document.getElementById("bmiResult").innerText = `BMI: ${bmi.toFixed(
+					2
+				)} (${category})`;
+			}
+		</script>
+	</body>
+</html>

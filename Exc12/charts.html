@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Charts with Plotly 23BCE1166</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container {
+            width: 45%;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+        <div id="barChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="lineChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="pieChart"></div>
+    </div>
+    <div class="chart-container">
+        <div id="donutChart"></div>
+    </div>
+
+    <script>
+        function drawCharts() {
+            let categories = ["A", "B", "C", "D", "E"];
+            let values = [10, 15, 7, 18, 12];
+
+            Plotly.newPlot("barChart", [{
+                x: categories,
+                y: values,
+                type: "bar",
+                marker: { color: ['red', 'blue', 'green', 'purple', 'orange'] }
+            }], { title: "Bar Chart", xaxis: { title: "Category" }, yaxis: { title: "Value" } });
+
+            Plotly.newPlot("lineChart", [{
+                x: categories,
+                y: values,
+                type: "scatter",
+                mode: "lines+markers",
+                marker: { color: 'blue' }
+            }], { title: "Line Chart", xaxis: { title: "Category" }, yaxis: { title: "Value" } });
+
+            Plotly.newPlot("pieChart", [{
+                labels: categories,
+                values: values,
+                type: "pie"
+            }], { title: "Pie Chart" });
+
+            Plotly.newPlot("donutChart", [{
+                labels: categories,
+                values: values,
+                type: "pie",
+                hole: 0.4
+            }], { title: "Donut Chart" });
+        }
+
+        drawCharts();
+    </script>
+
+</body>
+</html>

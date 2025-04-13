@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JavaScript Event Listeners 23BCE1166</title>
+		<style>
+			#stopwatch {
+				font-size: 24px;
+				margin-bottom: 10px;
+			}
+			button {
+				margin: 5px;
+				padding: 10px;
+				cursor: pointer;
+			}
+			textarea {
+				width: 300px;
+				height: 100px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>1. Stopwatch</h2>
+		<div id="stopwatch">00:00:00</div>
+		<button id="start">Start</button>
+		<button id="stop">Stop</button>
+		<button id="reset">Reset</button>
+
+		<h2>2. Calculate Age on Mouseover</h2>
+		<label>Date of Birth: <input type="date" id="dob" /></label>
+		<p>Age: <span id="age"></span></p>
+
+		<h2>3. Character Counter for Textarea</h2>
+		<textarea id="textArea"></textarea>
+		<p>Character Count: <span id="charCount">0</span></p>
+		<br /><br />
+		<a href="index3.html">Link to Q3</a>
+
+		<script>
+			let timer;
+			let seconds = 0,
+				minutes = 0,
+				hours = 0;
+
+			function formatTime(num) {
+				return num < 10 ? "0" + num : num;
+			}
+
+			function updateStopwatch() {
+				seconds++;
+				if (seconds === 60) {
+					seconds = 0;
+					minutes++;
+				}
+				if (minutes === 60) {
+					minutes = 0;
+					hours++;
+				}
+				document.getElementById("stopwatch").textContent =
+					formatTime(hours) +
+					":" +
+					formatTime(minutes) +
+					":" +
+					formatTime(seconds);
+			}
+
+			document.getElementById("start").addEventListener("click", function () {
+				if (!timer) {
+					timer = setInterval(updateStopwatch, 1000);
+				}
+			});
+
+			document.getElementById("stop").addEventListener("click", function () {
+				clearInterval(timer);
+				timer = null;
+			});
+
+			document.getElementById("reset").addEventListener("click", function () {
+				clearInterval(timer);
+				timer = null;
+				seconds = 0;
+				minutes = 0;
+				hours = 0;
+				document.getElementById("stopwatch").textContent = "00:00:00";
+			});
+
+			document.getElementById("dob").addEventListener("mouseover", function () {
+				let dob = new Date(this.value);
+				let today = new Date();
+				let age = today.getFullYear() - dob.getFullYear();
+				let monthDiff = today.getMonth() - dob.getMonth();
+				if (
+					monthDiff < 0 ||
+					(monthDiff === 0 && today.getDate() < dob.getDate())
+				) {
+					age--;
+				}
+				document.getElementById("age").textContent = age;
+			});
+
+			document
+				.getElementById("textArea")
+				.addEventListener("input", function () {
+					document.getElementById("charCount").textContent = this.value.length;
+				});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        font-size: 2em;
+    }
+</style>
+<body>
+    <h2>Order Receipt</h2>
+    <div id="Receipt"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const name1 = params.get("name1") ;
+        const name2 = params.get("name2") ;
+        const phone1 = params.get("number1") ;
+        const email = params.get("mail1") ;
+
+        const apple = parseInt(params.get("apple1")) || 0;
+        const banana = parseInt(params.get("Banana1")) || 0;
+        const avocado = parseInt(params.get("Avacado1")) || 0;
+
+        const prices = { apple: 10, banana: 6, avocado: 7 };
+
+        let total = (apple * prices.apple) + (banana * prices.banana) + (avocado * prices.avocado);
+
+        let receiptHTML = `<b>Name: ${name1} ${name2}</b><br>
+                           <b>Phone no: ${phone1}</b><br>
+                           <b>Email: ${email}</b><br>
+                           <h2>Order Summary</h2>`;
+
+        if (apple > 0) receiptHTML += `Apple: ${apple} kg - $${apple * prices.apple} <br>`;
+        if (banana > 0) receiptHTML += `Banana: ${banana} kg - $${banana * prices.banana} <br>`;
+        if (avocado > 0) receiptHTML += `Avocado: ${avocado} kg - $${avocado * prices.avocado} <br>`;
+
+        receiptHTML += `<h3>Total: $${total}</h3>`;
+
+        document.getElementById("Receipt").innerHTML = receiptHTML;
+    </script>
+</body>
+</html>

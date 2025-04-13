@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JavaScript Elements 23BCE1166
+</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic JavaScript Elements</h2>
+
+    <h3>1. Dynamic Table (3x3)</h3>
+    <div id="table-container"></div>
+
+    <h3>2. Button Color Change on Mouse Over</h3>
+    <div id="button-container"></div>
+
+    <h3>3. Textbox Color Change and Greeting on Change</h3>
+    <div id="textbox-container"></div>
+
+    <h3>4. Add List Item on Double Click</h3>
+    <input type="text" id="listInput">
+    <button id="addItemBtn">Add Item</button>
+    <ul id="itemList"></ul>
+
+    <h3>5. Key Press Counter</h3>
+    <input type="text" id="keyInput">
+    <p>Key Press Count: <span id="keyCount">0</span></p>
+    <br><br>
+    <a href="index2.html">Link to  Q2</a>
+
+    <script>
+        function createTable() {
+            let table = document.createElement("table");
+            for (let i = 0; i < 3; i++) {
+                let row = document.createElement("tr");
+                for (let j = 0; j < 3; j++) {
+                    let cell = document.createElement("td");
+                    cell.textContent = `Row ${i+1}, Col ${j+1}`;
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+            document.getElementById("table-container").appendChild(table);
+        }
+
+        function createButton() {
+            let button = document.createElement("button");
+            button.textContent = "Hover Me";
+            button.style.backgroundColor = "red";
+            button.style.color = "white";
+            button.style.padding = "10px";
+            button.style.border = "none";
+            button.style.cursor = "pointer";
+
+            button.addEventListener("mouseover", function() {
+                button.style.backgroundColor = "green";
+            });
+
+            button.addEventListener("mouseout", function() {
+                button.style.backgroundColor = "red";
+            });
+
+            document.getElementById("button-container").appendChild(button);
+        }
+
+        function createTextbox() {
+            let input = document.createElement("input");
+            input.type = "text";
+            input.style.backgroundColor = "green";
+            input.style.padding = "5px";
+
+            input.addEventListener("focus", function() {
+                input.style.backgroundColor = "yellow";
+            });
+
+            input.addEventListener("blur", function() {
+                input.style.backgroundColor = "green";
+            });
+
+            input.addEventListener("change", function() {
+                alert("Hello! You changed the text.");
+            });
+
+            document.getElementById("textbox-container").appendChild(input);
+        }
+
+        function setupListAdder() {
+            let button = document.getElementById("addItemBtn");
+            button.addEventListener("dblclick", function() {
+                let input = document.getElementById("listInput");
+                let value = input.value.trim();
+                if (value) {
+                    let li = document.createElement("li");
+                    li.textContent = value;
+                    document.getElementById("itemList").appendChild(li);
+                    input.value = "";
+                } else {
+                    alert("Please enter text before adding.");
+                }
+            });
+        }
+
+        function setupKeyCounter() {
+            let input = document.getElementById("keyInput");
+            let countDisplay = document.getElementById("keyCount");
+            let count = 0;
+
+            input.addEventListener("keypress", function() {
+                count++;
+                countDisplay.textContent = count;
+            });
+        }
+
+        createTable();
+        createButton();
+        createTextbox();
+        setupListAdder();
+        setupKeyCounter();
+    </script>
+
+</body>
+</html>

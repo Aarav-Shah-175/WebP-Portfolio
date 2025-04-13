@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Audio, Video, and Canvas Example</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 20px;
+			}
+			h2 {
+				font-size: 20px;
+				color: black;
+			}
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Audio</h2>
+		<audio controls>
+			<source src="audio-file.mp3" type="audio/mpeg" />
+			Your browser does not support the audio element.
+		</audio>
+
+		<h2>Video</h2>
+		<video controls width="400">
+			<source src="video-file.mp4" type="video/mp4" />
+			Your browser does not support the video element.
+		</video>
+
+		<h2>Canvas</h2>
+		<canvas id="canvas" width="400" height="300"></canvas>
+
+		<script>
+			// Drawing on Canvas
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
+
+			// Draw background
+			const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+			gradient.addColorStop(0, "darkred");
+			gradient.addColorStop(1, "black");
+			ctx.fillStyle = gradient;
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+			// Draw a laptop outline
+			ctx.fillStyle = "gray";
+			ctx.fillRect(100, 200, 200, 20);
+			ctx.fillRect(120, 50, 160, 150);
+
+			ctx.fillStyle = "black";
+			ctx.fillRect(130, 60, 140, 130);
+
+			// Draw a yellow circle
+			ctx.beginPath();
+			ctx.arc(200, 125, 50, 0, Math.PI * 2);
+			ctx.fillStyle = "yellow";
+			ctx.globalAlpha = 0.5;
+			ctx.fill();
+		</script>
+
+		<br />
+		<br />
+		<h1>My House Using SVG</h1>
+		<svg width="400" height="400">
+			<!-- House body -->
+			<rect
+				x="100"
+				y="150"
+				width="200"
+				height="200"
+				fill="brown"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<!-- Roof -->
+			<polygon
+				points="100,150 200,50 300,150"
+				fill="red"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<!-- Windows -->
+			<rect
+				x="130"
+				y="180"
+				width="40"
+				height="40"
+				fill="lightblue"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<rect
+				x="230"
+				y="180"
+				width="40"
+				height="40"
+				fill="lightblue"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<!-- Door -->
+			<rect
+				x="185"
+				y="250"
+				width="30"
+				height="100"
+				fill="saddlebrown"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<!-- Steps -->
+			<rect
+				x="180"
+				y="350"
+				width="40"
+				height="10"
+				fill="gray"
+				stroke="black"
+				stroke-width="1"
+			/>
+			<rect
+				x="175"
+				y="360"
+				width="50"
+				height="10"
+				fill="darkgray"
+				stroke="black"
+				stroke-width="1"
+			/>
+			<!-- Circular window on roof -->
+			<circle
+				cx="200"
+				cy="120"
+				r="15"
+				fill="yellow"
+				stroke="black"
+				stroke-width="2"
+			/>
+			<!-- Moon -->
+			<circle
+				cx="300"
+				cy="70"
+				r="20"
+				fill="yellow"
+				stroke="black"
+				stroke-width="1"
+			/>
+			<circle cx="310" cy="70" r="20" fill="white" />
+			<!-- Star -->
+			<polygon
+				points="260,50 265,65 280,65 268,75 273,90 260,80 247,90 252,75 240,65 255,65"
+				fill="yellow"
+				stroke="black"
+				stroke-width="1"
+			/>
+		</svg>
+	</body>
+</html>

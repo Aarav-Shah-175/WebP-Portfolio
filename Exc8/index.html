@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+		<style>
+			.reg-box {
+				border: 4px solid red;
+				width: 100px;
+				text-align: center;
+				font-weight: bold;
+				padding: 10px;
+				font-size: 20px;
+				margin: 10px auto;
+			}
+
+			.name-box {
+				border: 2px solid black;
+				width: 120px;
+				text-align: center;
+				font-size: 18px;
+				color: red;
+				font-weight: bold;
+				font-style: italic;
+				padding: 10px;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Calculator</h2>
+		<button onclick="calculator()">Run Calculator</button>
+
+		<h2>Driving Eligibility</h2>
+		<button onclick="checkDrivingAge()">Check Eligibility</button>
+
+		<h2>Student Confirmation</h2>
+		<button onclick="confirmStudent()">Confirm Student Status</button>
+
+		<h2>Labour Cost Calculation</h2>
+		<button onclick="calculateLabourCost()">Calculate Labour Cost</button>
+
+		<h2>Display Info</h2>
+		<button onclick="displayInfo()">Enter Info</button>
+		<div id="nameDisplay"></div>
+
+		<h2>Circus Ticket Booth</h2>
+		<label>Adult Tickets: <input type="number" id="adultTickets" /></label
+		><br />
+		<label>Child Tickets: <input type="number" id="childTickets" /></label
+		><br />
+		<button onclick="calculateTotal()">Calculate Total</button>
+		<input type="text" id="totalAmount" readonly />
+
+		<script>
+			// 1. Basic Calculator
+			function calculator() {
+				let num1 = parseFloat(prompt("Enter first number:"));
+				let num2 = parseFloat(prompt("Enter second number:"));
+				let operation = prompt("Choose operation (+, -, *, /, %):");
+				let result;
+
+				switch (operation) {
+					case "+":
+						result = num1 + num2;
+						break;
+					case "-":
+						result = num1 - num2;
+						break;
+					case "*":
+						result = num1 * num2;
+						break;
+					case "/":
+						result = num1 / num2;
+						break;
+					case "%":
+						result = num1 % num2;
+						break;
+					default:
+						alert("Invalid operation");
+						return;
+				}
+				alert("Result: " + result);
+			}
+
+			// 2. Check Driving Eligibility
+			function checkDrivingAge() {
+				let age = parseInt(prompt("Enter your age:"));
+				alert(
+					age >= 18
+						? "You are eligible to drive."
+						: "You are not eligible to drive."
+				);
+			}
+
+			// 3. Confirm Student Status
+			function confirmStudent() {
+				let isStudent = confirm("Are you a student?");
+				if (isStudent) {
+					let regNo = prompt("Enter your registration number:");
+					alert("Your registration number: " + regNo);
+				} else {
+					alert("Only students can enter registration numbers.");
+				}
+			}
+
+			// 4. Labour Cost Calculation
+			function calculateLabourCost() {
+				let hours = parseFloat(prompt("Enter hours worked:"));
+				let materialCost = parseFloat(prompt("Enter material cost:"));
+				let labourCost = 45 * hours;
+				let totalCharge = labourCost + materialCost;
+				alert(
+					"Labour Cost: Rs." + labourCost + "\nTotal Charge: Rs." + totalCharge
+				);
+			}
+
+			// 5. Display Name and Registration Number
+			function displayInfo() {
+				let name = prompt("Enter your name:");
+				let regNo = prompt("Enter your registration number:");
+				alert("Name: " + name + "\nRegistration No: " + regNo);
+				document.getElementById("nameDisplay").innerHTML =
+					'<div class="reg-box">' +
+					regNo +
+					'</div><div class="name-box">*' +
+					name +
+					"*</div>";
+			}
+
+			// 6. Circus Ticket Booth
+			function calculateTotal() {
+				let adultTickets =
+					parseInt(document.getElementById("adultTickets").value) || 0;
+				let childTickets =
+					parseInt(document.getElementById("childTickets").value) || 0;
+				let total = adultTickets * 100 + childTickets * 50;
+				alert("Total Amount: Rs. " + total);
+				document.getElementById("totalAmount").value = "Rs. " + total;
+			}
+		</script>
+	</body>
+</html>

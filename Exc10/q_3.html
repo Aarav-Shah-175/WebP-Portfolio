@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>23BCE1166</title>
+	</head>
+	<style>
+		.box {
+			width: 700px;
+			background-color: rgba(135, 163, 103, 0.904);
+			padding: 25px;
+			border-radius: 25px;
+			font-size: 25px;
+		}
+		body {
+			display: flex;
+			justify-content: center;
+		}
+		input {
+			border-radius: 20px;
+			height: 25px;
+			margin-right: 5px;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<h1 align="center">Grocery Order Form</h1>
+			<form action="receipt.html" id="form1" method="get">
+				<!--get is used when the data is to be sent via url and it is visible in the url so not good for sensitive data-->
+				<label for=""><b>Customer Name:</b></label
+				><br />
+				<input type="text" id="name1" name="name1" /> &nbsp;&nbsp;&nbsp;<input
+					id="name2"
+					type="text"
+					name="name2"
+				/>
+				<br /><br />
+				<label for="">Phone Number</label><br /><br />
+				<input type="number" name="number1" />&nbsp;&nbsp;&nbsp; <br /><br />
+
+				<label for="">E-mail</label><br />
+				<br />
+				<input type="email" name="mail1" />
+
+				<hr style="color: black" />
+
+				<h3>Products</h3>
+				<table cellspacing="20px">
+					<tr>
+						<td>
+							<img src="apple.jpeg" alt=" apple" style="border-radius: 50px" />
+						</td>
+						<td>
+							<input
+								type="checkbox"
+								style="height: 20px; width: 20px; border-radius: 20px"
+							/>
+						</td>
+						<td>apple</td>
+						<td>$10</td>
+						<td>
+							<input
+								type="number"
+								style="width: 35px; border-radius: 25px"
+								name="apple1"
+							/>kg
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="banana.jpeg" alt="banana" style="border-radius: 50px" />
+						</td>
+						<td>
+							<input
+								type="checkbox"
+								style="height: 20px; width: 20px; border-radius: 20px"
+							/>
+						</td>
+						<td>Banana</td>
+						<td>$5</td>
+						<td>
+							<input
+								type="number"
+								style="width: 35px; border-radius: 25px"
+								name="Banana1"
+							/>kg
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img
+								src="avocado.jpeg"
+								alt="avocado"
+								style="border-radius: 50px"
+							/>
+						</td>
+						<td>
+							<input
+								type="checkbox"
+								style="height: 20px; width: 20px; border-radius: 20px"
+							/>
+						</td>
+						<td>Avocado</td>
+						<td>$7</td>
+						<td>
+							<input
+								type="number"
+								style="width: 35px; border-radius: 25px"
+								name="Avocado1"
+							/>kg
+						</td>
+					</tr>
+				</table>
+
+				<center>
+					<button
+						style="
+							width: 200px;
+							height: 30px;
+							text-align: center;
+							border-radius: 40px;
+							color: white;
+							background-color: rgb(245, 162, 54);
+							font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+								'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+						"
+						type="submit"
+					>
+						SUBMIT
+					</button>
+				</center>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aarav's Resume</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+			header {
+				background-color: #333;
+				color: white;
+				text-align: center;
+				padding: 20px 0;
+			}
+			header h1 {
+				margin: 0;
+			}
+			header p {
+				margin: 5px 0;
+			}
+			.container {
+				display: grid;
+				grid-template-columns: 200px 1fr 250px;
+				grid-template-rows: auto 1fr auto;
+				grid-template-areas:
+					"nav header header"
+					"nav main aside"
+					"footer footer footer";
+				height: 100vh;
+			}
+			nav {
+				grid-area: nav;
+				background-color: #f4f4f4;
+				padding: 20px;
+			}
+			nav ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			nav a {
+				color: #333;
+				text-decoration: none;
+				display: block;
+				margin-bottom: 10px;
+			}
+			nav a:hover {
+				text-decoration: underline;
+			}
+			main {
+				grid-area: main;
+				padding: 20px;
+			}
+			aside {
+				grid-area: aside;
+				background-color: #f4f4f4;
+				padding: 20px;
+			}
+			footer {
+				grid-area: footer;
+				background-color: #333;
+				color: white;
+				text-align: center;
+				padding: 10px 0;
+			}
+			section {
+				margin-bottom: 20px;
+			}
+			h2 {
+				margin-top: 0;
+			}
+			progress {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Aarav Shah</h1>
+				<p>Web Developer | Passionate about Innovation and Self Growth</p>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="#about">About Me</a></li>
+					<li><a href="#education">Education</a></li>
+					<li><a href="#experience">Experience</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="media.html" onclick="showMedia('media')">Media</a></li>
+				</ul>
+			</nav>
+			<main>
+				<section id="about">
+					<h2>About Me</h2>
+					<p>
+						I am a web developer with a passion for creating accessible and
+						user-friendly websites. I specialize in HTML, CSS, and JavaScript.
+					</p>
+				</section>
+
+				<section id="education">
+					<h2>Education</h2>
+					<p>BTech in Computer Science from VIT University</p>
+				</section>
+
+				<section id="experience">
+					<h2>Experience</h2>
+					<article>
+						<h3>Software Developer - Amazon</h3>
+						<p>
+							Worked on building responsive web applications using HTML5, CSS3,
+							and JavaScript.
+						</p>
+					</article>
+				</section>
+
+				<section id="skills">
+					<h2>Skills</h2>
+					<ul>
+						<li>HTML5, CSS3, JavaScript</li>
+						<li>React, Node.js</li>
+						<li>Git, GitHub</li>
+					</ul>
+
+					<h3>Skill Proficiency</h3>
+					<p>HTML</p>
+					<progress value="90" max="100"></progress>
+
+					<p>CSS</p>
+					<progress value="85" max="100"></progress>
+
+					<p>JavaScript</p>
+					<progress value="80" max="100"></progress>
+				</section>
+			</main>
+			<aside>
+				<h3>Quick Facts</h3>
+				<ul>
+					<li>Location: Gujarat, India</li>
+					<li>Languages: English, Hindi, Gujarati</li>
+					<li>Hobbies: Coding, Music, Cricket</li>
+				</ul>
+
+				<h3>Portfolio</h3>
+				<a href="https://www.example.com" target="_blank">Visit My Portfolio</a>
+				<a href="https://www.linkedin.com/in/aarav-shah-4026y" target="_blank"
+					>Connect on LinkedIn</a
+				>
+			</aside>
+
+			<footer>
+				<p>Contact me at <a href="mailto:aarav@ex.com">aarav@ex.com</a></p>
+				<p>&copy; 2025 Aarav. All rights reserved.</p>
+			</footer>
+		</div>
+	</body>
+</html>
