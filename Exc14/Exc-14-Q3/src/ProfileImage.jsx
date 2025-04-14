@@ -5,7 +5,7 @@ function ProfileImage() {
 		<>
 			<img
 				style={{ height: "200px", width: "200px", borderRadius: "50%" }}
-				src="./public/Images/profile.jpg"
+				src="/Images/profile.jpg"
 				alt=""
 			/>
 		</>
