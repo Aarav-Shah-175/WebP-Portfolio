@@ -6,7 +6,11 @@ function App() {
 	return (
 		<>
 			<h3>Q1</h3>
-			<img style={{ height: "300px" }} src="./public/Images/myimg.jpg" alt="" />
+			<img
+				style={{ height: "300px" }}
+				src="/Images/myimg.jpg"
+				alt="Not appearing"
+			/>
 			<br /> <br />
 			<img style={{ height: "300px" }} src={myimg2} alt="" />
 			<br />
